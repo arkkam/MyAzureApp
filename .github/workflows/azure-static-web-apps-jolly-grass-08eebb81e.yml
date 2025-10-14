@@ -28,6 +28,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Rename index.csr to index.html
+        run: mv dist/MyAzureApp/browser/index.csr dist/MyAzureApp/browser/index.html  
+
       - name: Build Angular App
         run: npm run build --if-present
       - name: Build And Deploy
