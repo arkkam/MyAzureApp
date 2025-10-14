@@ -26,13 +26,14 @@ jobs:
           node-version: '20.19.0'
 
       - name: Install dependencies
-        run: npm install
-
-      - name: Rename index.csr to index.html
-        run: mv dist/MyAzureApp/browser/index.csr dist/MyAzureApp/browser/index.html  
+        run: npm install 
 
       - name: Build Angular App
         run: npm run build --if-present
+
+      - name: Rename index.csr to index.html
+        run: mv dist/MyAzureApp/browser/index.csr dist/MyAzureApp/browser/index.html 
+
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
