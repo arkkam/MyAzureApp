@@ -35,7 +35,7 @@ jobs:
         run: ls -R dist
 
       - name: Rename index.csr to index.html
-        run: mv dist/MyAzureApp/browser/index.csr dist/MyAzureApp/browser/index.html 
+        run: mv dist/MyAzureApp/browser/index.csr.html dist/MyAzureApp/browser/index.html 
 
       - name: Build And Deploy
         id: builddeploy
