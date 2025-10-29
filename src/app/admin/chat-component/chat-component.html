@@ -1,0 +1,30 @@
+<div class="chat-container">
+    <div class="chat-box" #messagesContainer>
+        @for (msg of messages(); track msg) {
+        <div class="message" [ngClass]="msg.sender === 'User' ? 'user' : 'bot'">
+            <div class="bubble">
+                <pre>{{ msg.text }}</pre>
+            </div>
+        </div>
+        }
+
+        @if (loading()) {
+        <div class="message bot">
+            <div class="bubble bot typing">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+        }
+    </div>
+
+    <div class="input-section">
+        <textarea #chatInput [value]="userPrompt()" (input)="onInputChange($event)"
+            (keydown.enter)="onEnterPress($event)" [disabled]="loading()"
+            placeholder="Type your message..."></textarea>
+        <button (click)="sendMessage()" [disabled]="loading()">
+            {{ loading() ? 'Sending...' : 'Send' }}
+        </button>
+    </div>
+</div>
